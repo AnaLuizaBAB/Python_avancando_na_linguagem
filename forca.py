@@ -1,11 +1,25 @@
+import random
+
 def jogar():
 
     print("\n\n")
     print ("Bem vindo ao jogo da forca.")
     print("\n")
 
+    frutas = []
+
+    with open("Frutas_sem_caracteres_especiais.txt", "r") as arquivo:
+        for linha in arquivo:
+            linha = linha.strip().lower()
+            frutas.append(linha)
+
     
-    palavra_secreta = 'banana'.lower()
+    palavra_secreta = random.choice(frutas)
+
+    print('\n')
+    print (palavra_secreta)
+    print('\n')
+    
     enforcado = False
     acertou = False
     numero_da_tentativa = 1                                                
@@ -15,18 +29,15 @@ def jogar():
     nivel_dificuldade = int(input("\nQual é o nível de dificuldade desejado?"))
 
     if (nivel_dificuldade == 1):
-        tentativas = 15
+        tentativas = len(palavra_secreta) + 7
     elif (nivel_dificuldade == 2):
-        tentativas = 9
+        tentativas = len(palavra_secreta) + 5
     else:
-        tentativas = 6
+        tentativas = len(palavra_secreta)+ 3
 
     # Colocando um '_' para cada letra da palavra secreta
         
-
-
-    lista = ["_" for letra in palavra_secreta]                                          # para colocar a quantidade de "_" de acordo com o tamanho da palavra secreta!
-
+    lista = ["_" for letra in palavra_secreta]
     
     print ('\n')
     print (lista)
