@@ -63,6 +63,7 @@ def jogar():
             print(f"\nTentativa {numero_da_tentativa}/{tentativas}")
             print(lista)
             print("Você foi enforcado!!!")
+            print (f"A palavra secreta era {palavra_secreta}.")
             break
         else:
             print(f"\nTentativa {numero_da_tentativa}/{tentativas}")
