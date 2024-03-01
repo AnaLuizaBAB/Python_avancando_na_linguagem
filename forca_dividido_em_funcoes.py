@@ -19,6 +19,12 @@ def func_nivel_dificuldade():
     print ("Informe o nível de dificuldade desejada")
     print("1 (Fácil)     2 (Médio)     3 (Difícil)")
     nivel_dificuldade = int(input("\nQual é o nível de dificuldade desejado?"))
+
+    while ((nivel_dificuldade != 1) and (nivel_dificuldade != 2) and (nivel_dificuldade != 3)):
+        print ("\nNível de dificuldade invalido.")
+        print ("\n\nInforme o nível de dificuldade desejada")
+        print("1 (Fácil)     2 (Médio)     3 (Difícil)")
+        nivel_dificuldade = int(input("\nQual é o nível de dificuldade desejado?"))
     return nivel_dificuldade
 
 def func_esqueleto_palavra_secreta(palavra):
@@ -78,6 +84,8 @@ def jogar():
     print("\n")
 
     nivel_dificuldade = func_nivel_dificuldade()
+
+  
     palavra_secreta = func_escolhe_palavra_secreta()
     lista = func_esqueleto_palavra_secreta(palavra_secreta)
     tentativas = func_numero_tentativas(nivel_dificuldade, palavra_secreta)
@@ -113,7 +121,6 @@ def jogar():
             print (f"\nA palavra secreta era {palavra_secreta}.")
             print("Você perdeu!\n")
             func_desenho_perdedor()
-
             break
         else:
             print(f"\nTentativa {numero_da_tentativa}/{tentativas}")
